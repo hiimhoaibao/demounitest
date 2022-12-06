@@ -1,9 +1,7 @@
-import { useState } from 'react';
+import Count from "@/components/count-redux/Count";
 
 function App() {
-  const [count, setCount] = useState(0);
-
-  return <div className="App">{count}</div>;
+  return <Count />;
 }
 
 export default App;

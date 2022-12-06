@@ -2,7 +2,6 @@ import { shallow } from "enzyme";
 import StudentTab, {
   FallbackSuspense,
   ReloadComponent,
-  TableFilter,
   TableComponent,
 } from "./StudentTab";
 import useStudentTabHook from "./useStudentTabHook";
@@ -42,7 +41,6 @@ describe("StudentTab", () => {
 
   it("should render correctly", () => {
     const wrapper = shallow(<StudentTab {...mockProps} />);
-    expect(wrapper.find(TableFilter).length).toBe(1);
     expect(wrapper.find(TableComponent).length).toBe(1);
     expect(wrapper.find("h3").text().trim()).toBe(
       "How are my students performing across assignments?"
