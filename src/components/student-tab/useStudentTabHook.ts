@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import { getStudentReports } from "../../services";
+import { getStudentReports } from "@/services";
 
 interface StudentTabHookProps {
   courseId: number;

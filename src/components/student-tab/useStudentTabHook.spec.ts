@@ -1,10 +1,10 @@
 import { renderHook, act } from "@testing-library/react-hooks";
-import { getFilteredStudentDataMock } from "../../mocks";
-import * as service from "../../services";
+import { getFilteredStudentDataMock } from "@/mocks";
+import * as service from "@/services";
 import useStudentTabHook from "./useStudentTabHook";
 
-jest.mock("../../services", () => {
-  const original = jest.requireActual("../../services");
+jest.mock("@/services", () => {
+  const original = jest.requireActual("@/services");
   return {
     ...original,
     getStudentReports: jest.fn(() =>
@@ -19,6 +19,8 @@ describe("useStudentTabHook", () => {
     sectionId: 1,
   };
 
+  const getStudentReportsSpy = jest.spyOn(service, "getStudentReports");
+
   beforeEach(() => {
     getStudentReportsSpy.mockImplementation(() =>
       Promise.resolve({
@@ -30,8 +32,6 @@ describe("useStudentTabHook", () => {
   afterEach(() => {
     jest.clearAllMocks();
   });
-
-  const getStudentReportsSpy = jest.spyOn(service, "getStudentReports");
 
   it("onSearch should runs correctly", async () => {
     const searchText = "searchTextTest";

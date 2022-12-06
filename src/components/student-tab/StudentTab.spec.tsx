@@ -26,7 +26,7 @@ jest.mock("./useStudentTabHook", () => {
   };
 });
 
-describe("SHStudentPerformanceTab", () => {
+describe("StudentTab", () => {
   const mockProps = {
     courseId: 123,
     sectionId: 123,
