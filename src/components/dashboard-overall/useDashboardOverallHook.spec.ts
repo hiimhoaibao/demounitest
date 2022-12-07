@@ -57,6 +57,52 @@ describe("useDashboardOverallHook", () => {
     expect(mockDispatch).toHaveBeenCalledTimes(0);
   });
 
+  it("dispatchCardActionByHash should runs correctly with STUDENT_ENGAGEMENT_TAB.hash", () => {
+    const actionProps = {
+      data: {
+        sortDirection: "ASC",
+        headerSelector: "headerSelector",
+      },
+    };
+    const {
+      data: { sortDirection, headerSelector },
+    } = actionProps;
+    const { result } = renderHook(() => useDashboardOverallHook());
+    act(() => {
+      result.current.dispatchCardActionByHash(
+        STUDENT_ENGAGEMENT_TAB.hash,
+        sortDirection,
+        headerSelector
+      );
+    });
+    expect(mockDispatch).toHaveBeenCalledWith(
+      actions.setPatientInteractionTimeCardAndTableSortInteraction(actionProps)
+    );
+  });
+
+  it("dispatchCardActionByHash should runs correctly with STUDENT_PERFORMANCE_TAB.hash", () => {
+    const actionProps = {
+      data: {
+        sortDirection: "DESC",
+        headerSelector: "headerSelector",
+      },
+    };
+    const {
+      data: { sortDirection, headerSelector },
+    } = actionProps;
+    const { result } = renderHook(() => useDashboardOverallHook());
+    act(() => {
+      result.current.dispatchCardActionByHash(
+        STUDENT_PERFORMANCE_TAB.hash,
+        sortDirection,
+        headerSelector
+      );
+    });
+    expect(mockDispatch).toHaveBeenCalledWith(
+      actions.setScoreDistributedCardAndTableSortInteraction(actionProps)
+    );
+  });
+
   it("handleScoreDistributedCardClick should runs correctly", () => {
     const { result } = renderHook(() => useDashboardOverallHook());
 

@@ -50,14 +50,6 @@ const buildScoreDistributedProps = ({
   };
 };
 
-const getTotalDisplay = (total: number, displayText: string): string => {
-  let result = `${total} ${displayText}`;
-  if (total >= 2) {
-    result += "s";
-  }
-  return result;
-};
-
 const Card = ({ children }: any) => <div>{children}</div>;
 const ScoreDistributed = (props: any) => <div>ScoreDistributed</div>;
 const PatientInteractionTime = ({ timeSpent }: any) => (
@@ -103,5 +95,4 @@ const DashboardOverall = ({
   );
 };
 
-export { getTotalDisplay };
 export default DashboardOverall;
